@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Request Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* --- TOP RULES SECTION --- */
+        .pls-note {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .pls-note h3 {
+            color: #0000ff; /* Blue text */
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .pls-note ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .pls-note li {
+            margin-bottom: 5px;
+        }
+
+        /* --- IMPORTANT NOTICE BOX --- */
+        .notice-box {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 15px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .notice-box h4 {
+            color: #cc0000;
+            margin: 0 0 10px 0;
+            font-size: 16px;
+        }
+        .notice-box p {
+            color: #cc0000;
+            font-weight: bold;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .notice-box .form-title {
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 15px;
+            display: block;
+        }
+
+        /* --- FORM GRID LAYOUT --- */
+        .astro-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 35% 65%; /* Left column for labels, right for inputs */
+            align-items: start;
+        }
+        .form-row label {
+            font-weight: bold;
+            font-size: 14px;
+            padding-top: 8px; /* Aligns text with the input box */
+        }
+        .form-row input[type="text"],
+        .form-row input[type="email"],
+        .form-row input[type="tel"],
+        .form-row input[type="datetime-local"],
+        .form-row input[type="number"],
+        .form-row select,
+        .form-row textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .form-row textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        /* --- RADIO BUTTONS (Sex & Payment) --- */
+        .radio-group {
+            padding-top: 8px;
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+        .radio-group label {
+            font-weight: normal;
+            padding-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 8px;
+            font-size: 14px;
+        }
+        .payment-options label {
+            font-weight: normal;
+            padding-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- AMOUNT DISPLAY --- */
+        .amount-display {
+            background-color: #e8f5e9;
+            border: 1px solid #4caf50;
+            padding: 10px 15px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-top: 10px;
+        }
+
+        /* --- SUBMIT BUTTON --- */
+        .submit-btn {
+            background-color: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 4px;
+            align-self: flex-start;
+        }
+        .submit-btn:hover {
+            background-color: #d15815;
+        }
+        .submit-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    
+    <div class="pls-note">
+        <h3>Pls note</h3>
+        <ul>
+            <li>This service is based specifically for upcoming year prediction from a single Kundali.</li>
+            <li>Your specific queries will save time so be prepared with your questions.</li>
+            <li>write down the reply & remedies suggested by Guru Ji as <strong>no report will be sent & no post query will be entertained in telephonic service.</strong></li>
+        </ul>
+    </div>
+
+    <div class="notice-box">
+        <h4>Important Notice</h4>
+        <p>1. All Anushthaans & Hawans are exclusively for our existing clients. New clients are requested to contact us before placing request for Hawan & Anushthaan.</p>
+        <p>2. Post query will be entertained within 3 days of your consultation.</p>
+        <span class="form-title">Fill Request Form & Pay</span>
+    </div>
+
+    <form class="astro-form" id="bookingForm">
+        
+        <div class="form-row">
+            <label>Name*</label>
+            <input type="text" id="name" required>
+        </div>
+
+        <div class="form-row">
+            <label>Email*</label>
+            <input type="email" id="email" required>
+        </div>
+
+        <div class="form-row">
+            <label>Contact Number*</label>
+            <input type="tel" id="contact" required>
+        </div>
+
+        <div class="form-row">
+            <label>Address*</label>
+            <textarea id="address" required></textarea>
+        </div>
+
+        <div class="form-row">
+            <label>City*</label>
+            <input type="text" id="city" required>
+        </div>
+
+        <div class="form-row">
+            <label>State*</label>
+            <input type="text" id="state" required>
+        </div>
+
+        <div class="form-row">
+            <label>Sex*</label>
+            <div class="radio-group">
+                <label><input type="radio" name="sex" value="Male" required> Male</label>
+                <label><input type="radio" name="sex" value="Female" required> Female</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>Date & Time of Birth*</label>
+            <input type="datetime-local" id="dob" required>
+        </div>
+
+        <div class="form-row">
+            <label>Place of Birth*</label>
+            <input type="text" id="pob" required>
+        </div>
+
+        <div class="form-row">
+            <label>Service Type*</label>
+            <select id="serviceType" required onchange="updateAmount()">
+                <option value="">-- Select Service --</option>
+                <option value="yearly">Yearly Prediction</option>
+                <option value="matchmaking">Match Making Report</option>
+                <option value="business">Business/Partnership Report</option>
+                <option value="health">Health & Wellness Report</option>
+                <option value="custom">Custom Consultation</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label>Service Fee (₹)*</label>
+            <input type="number" id="amount" min="100" step="100" required readonly>
+            <div class="amount-display" id="amountDisplay">Total: ₹0</div>
+        </div>
+
+        <div class="form-row">
+            <label>Description: "Please write your query here , in case of you opted for Match Making or Business/Partnership Report write Partner birth details too." *</label>
+            <textarea id="description" required></textarea>
+        </div>
+
+        <div class="form-row">
+            <label>Select Payment Method *</label>
+            <div class="payment-options">
+                <label>
+                    <input type="radio" name="paymentMethod" value="razorpay" required> 
+                    Online Payment (Cards/NetBanking/UPI/Wallets)
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="paytm"> 
+                    Paytm UPI: 7827270869@paytm
+                </label>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button type="submit" class="submit-btn" id="submitBtn">Proceed to Pay</button>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    // Service pricing
+    const servicePrices = {
+        'yearly': 1500,
+        'matchmaking': 2000,
+        'business': 2500,
+        'health': 1800,
+        'custom': 3000
+    };
+
+    function updateAmount() {
+        const serviceType = document.getElementById('serviceType').value;
+        const amountField = document.getElementById('amount');
+        const amountDisplay = document.getElementById('amountDisplay');
+        
+        if (serviceType && servicePrices[serviceType]) {
+            const amount = servicePrices[serviceType];
+            amountField.value = amount;
+            amountDisplay.textContent = `Total: ₹${amount}`;
+        } else {
+            amountField.value = '';
+            amountDisplay.textContent = 'Total: ₹0';
+        }
+    }
+
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        
+        if (paymentMethod === 'razorpay') {
+            handleRazorpayPayment();
+        } else if (paymentMethod === 'paytm') {
+            handleManualPayment();
+        }
+    });
+
+    function handleRazorpayPayment() {
+        // Gather form data
+        const userData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            contact: document.getElementById('contact').value,
+            address: document.getElementById('address').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value,
+            sex: document.querySelector('input[name="sex"]:checked').value,
+            dob: document.getElementById('dob').value,
+            pob: document.getElementById('pob').value,
+            description: document.getElementById('description').value,
+            paymentMethod: 'razorpay',
+            serviceType: document.getElementById('serviceType').value,
+            amount: parseFloat(document.getElementById('amount').value)
+        };
+
+        // Step 1: Save booking to database
+        fetch('http://localhost:5000/api/bookings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const bookingId = data.bookingId;
+                
+                // Step 2: Create Razorpay order
+                return fetch('http://localhost:5000/api/create-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: userData.amount,
+                        bookingId: bookingId,
+                        currency: 'INR'
+                    })
+                })
+                .then(response => response.json())
+                .then(orderData => {
+                    if (orderData.success) {
+                        // Step 3: Open Razorpay checkout
+                        openRazorpayCheckout(orderData, userData, bookingId);
+                    } else {
+                        alert('Error creating payment order');
+                    }
+                });
+            } else {
+                alert('Error saving booking: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Connection error. Make sure the server is running on http://localhost:5000');
+        });
+    }
+
+    function openRazorpayCheckout(orderData, userData, bookingId) {
+        const options = {
+            key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your actual key
+            amount: orderData.amount * 100,
+            currency: orderData.currency,
+            name: 'Vedaang Vastu Academy',
+            description: `${userData.serviceType} - ${userData.name}`,
+            order_id: orderData.orderId,
+            prefill: {
+                name: userData.name,
+                email: userData.email,
+                contact: userData.contact
+            },
+            theme: {
+                color: '#FF9800'
+            },
+            handler: function(response) {
+                // Verify payment on server
+                fetch('http://localhost:5000/api/verify-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        razorpayOrderId: response.razorpay_order_id,
+                        razorpayPaymentId: response.razorpay_payment_id,
+                        razorpaySignature: response.razorpay_signature,
+                        bookingId: bookingId
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(`✓ Payment Successful!\n\nBooking ID: ${bookingId}\nPayment ID: ${response.razorpay_payment_id}\n\nThank you for booking with us!`);
+                        document.getElementById('bookingForm').reset();
+                        document.getElementById('amountDisplay').textContent = 'Total: ₹0';
+                    } else {
+                        alert('Payment verification failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error verifying payment');
+                });
+            },
+            modal: {
+                ondismiss: function() {
+                    alert('Payment cancelled. Your booking is still saved. You can complete payment later.');
+                }
+            }
+        };
+
+        const rzp = new Razorpay(options);
+        rzp.open();
+    }
+
+    function handleManualPayment() {
+        // Gather form data for manual payment
+        const userData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            contact: document.getElementById('contact').value,
+            address: document.getElementById('address').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value,
+            sex: document.querySelector('input[name="sex"]:checked').value,
+            dob: document.getElementById('dob').value,
+            pob: document.getElementById('pob').value,
+            description: document.getElementById('description').value,
+            paymentMethod: 'paytm',
+            serviceType: document.getElementById('serviceType').value,
+            amount: parseFloat(document.getElementById('amount').value),
+            paymentStatus: 'pending'
+        };
+
+        fetch('http://localhost:5000/api/bookings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(`✓ Booking Saved Successfully!\n\nBooking ID: ${data.bookingId}\nAmount: ₹${userData.amount}\n\nPlease send payment to:\nUPI: 7827270869@paytm\n\nWe will verify and confirm your payment shortly.`);
+                document.getElementById('bookingForm').reset();
+                document.getElementById('amountDisplay').textContent = 'Total: ₹0';
+            } else {
+                alert('Error saving booking: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Connection error. Make sure the server is running on http://localhost:5000');
+        });
+    }
+</script>
+
+</body>
+</html>

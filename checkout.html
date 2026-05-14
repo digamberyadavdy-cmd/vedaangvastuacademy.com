@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Request Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="portal-main">
+        <h2 class="page-title">Apply to Book Consultancy Form</h2>
+
+        <section class="portal-layout">
+            <div class="portal-panel">
+                <h3>Apply to Book Astro Consultancy Form</h3>
+
+                <form class="astro-form" id="bookingForm">
+                    <div class="form-row">
+                        <label for="serviceType">Service Type <span>*</span></label>
+                        <select id="serviceType" required onchange="calculateGST()">
+                            <option value="">-- Select Service --</option>
+                            <option value="5100" data-service="Urgent Talk">Urgent Talk (Rs. 5100)</option>
+                            <option value="2500" data-service="Premium Talk">Premium Talk (Rs. 2500)</option>
+                            <option value="2000" data-service="Match Making">Match Making (Rs. 2000)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="name">Applicant Name <span>*</span></label>
+                        <input type="text" id="name" placeholder="Enter full name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="mobile">Mobile Number <span>*</span></label>
+                        <input type="tel" id="mobile" placeholder="Enter registered mobile number" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter email address">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Amount Details <span>*</span></label>
+                        <input type="hidden" id="finalAmount" required>
+                        <div class="amount-display" id="amountDisplay">Select a service to see total</div>
+                    </div>
+
+                    <p class="form-note">Note:- GST will be calculated automatically after service selection.</p>
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn" id="submitBtn">Proceed to Pay</button>
+                    </div>
+                </form>
+            </div>
+
+            <aside class="instruction-panel">
+                <h3>Application Form Instructions</h3>
+                <p><strong>Service Type:</strong> Select the consultation service you want to book.</p>
+                <p><strong>Applicant Name:</strong> Enter the name exactly as you want it recorded for this booking.</p>
+                <p><strong>Mobile Number:</strong> Enter a valid mobile number. Booking confirmation can be sent to this number.</p>
+                <p><strong>Amount Details:</strong> Base price, GST and final payable amount will appear after selecting a service.</p>
+            </aside>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
