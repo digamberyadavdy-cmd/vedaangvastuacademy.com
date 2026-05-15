@@ -1,85 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Astro Website</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <!-- TOP BAR -->
 <div class="top-bar">
-  <a href="#">Rashifal 2026</a>
-  <a href="#">Transit 2026</a>
-  <a href="#">Festival 2026</a>
-  <a href="#">Ekadashi 2026</a>
-  <a href="#">Articles</a>
+
+<a href="rashifal.html">Rashifal 2026</a>
+
+<a href="transit.html">Transit 2026</a>
+
+<a href="festival.html">Festival 2026</a>
+
+<a href="ekadashi.html">Ekadashi 2026</a>
+
+<a href="articles.html">Articles</a>
+
 </div>
 
-<!-- HEADER -->
 <header class="header">
-  <div class="logo">
-    <h1>Astro Tips</h1>
-  </div>
 
-  <div class="zodiac-menu">
+<!-- LEFT SIDE LOGO -->
+<div class="header-left">
 
-<div class="zodiac-card">
-<span>♈</span>
+<img src="images/logo.png" class="company-logo">
+
+<h1>Astro Tips</h1>
+
+<p>Jyotish guidance, correct future <br>and peaceful life.</p>
+
+</div>
+
+<!-- CENTER ZODIAC -->
+<div class="header-center">
+
+<a href="mesh-rashifal.html" class="zodiac-box">
+<img src="images/aries.png">
 <p>Aries</p>
-</div>
+</a>
 
-<div class="zodiac-card">
-<span>♉</span>
+<a href="vrishabh-rashifal.html" class="zodiac-box">
+<img src="images/taurus.png">
 <p>Taurus</p>
-</div>
+</a>
 
-<div class="zodiac-card">
-<span>♊</span>
+<a href="mithun-rashifal.html" class="zodiac-box">
+<img src="images/gemini.png">
 <p>Gemini</p>
-</div>
+</a>
 
-<div class="zodiac-card">
-<span>♋</span>
+<a href="kark-rashifal.html" class="zodiac-box">
+<img src="images/cancer.png">
 <p>Cancer</p>
-</div>
+</a>
 
-<div class="zodiac-card">
-<span>♌</span>
+<a href="singh-rashifal.html" class="zodiac-box">
+<img src="images/leo.png">
 <p>Leo</p>
-</div>
+</a>
 
-<div class="zodiac-card">
-<span>♍</span>
+<a href="kanya-rashifal.html" class="zodiac-box">
+<img src="images/virgo.png">
 <p>Virgo</p>
-</div>
+</a>
 
-<div class="zodiac-card">
-<span>♎</span>
+<a href="tula-rashifal.html" class="zodiac-box">
+<img src="images/libra.png">
 <p>Libra</p>
-</div>
+</a>
 
-<div class="zodiac-card">
-<span>♏</span>
+<a href="vrishchik-rashifal.html" class="zodiac-box">
+<img src="images/scorpio.png">
 <p>Scorpio</p>
-</div>
+</a>
+
+<a href="dhanu-rashifal.html" class="zodiac-box">
+<img src="images/sagittarius.png">
+<p>Sagittarius</p>
+</a>
+
+<a href="makar-rashifal.html" class="zodiac-box">
+<img src="images/capricorn.png">
+<p>Capricorn</p>
+</a>
+
+<a href="kumbh-rashifal.html" class="zodiac-box">
+<img src="images/aquarius.png">
+<p>Aquarius</p>
+</a>
+
+<a href="meen-rashifal.html" class="zodiac-box">
+<img src="images/pisces.png">
+<p>Pisces</p>
+</a>
 
 </div>
-</header>
 
-<!-- NAVBAR -->
+<!-- RIGHT SIDE JYOTISH -->
+<div class="header-right">
+
+<img src="images/jyotish.jpg" class="guru-image">
+
+<h2>Pt. Deepak Dubey</h2>
+
+<h4>Famous Astrologer</h4>
+
+<p>With deep knowledge of astrology and years of experience, we provide correct guidance and predictions.</p>
+
+</div>
+
+</header><!-- NAVBAR -->
 <nav class="navbar">
-  <ul>
-    <li><a href="#">HOME</a></li>
-    <li><a href="#">ASTRO SERVICE</a></li>
-    <li><a href="#">VEDIC POOJA</a></li>
-    <li><a href="#">SHUBH MAHURAT</a></li>
-    <li><a href="#">VASTU</a></li>
-  </ul>
 
-  <input type="text" placeholder="Search">
+<div class="menu-icon" onclick="toggleMenu()">
+☰
+</div>
+
+<ul id="navMenu">
+<li><a href="index.html">HOME</a></li>
+<li><a href="rashifal.html">RASHIFAL</a></li>
+<li><a href="astro-service.html">ASTRO SERVICE</a></li>
+<li><a href="vedic-pooja.html">VEDIC POOJA</a></li>
+<li><a href="transit.html">TRANSIT</a></li>
+</ul>
+
+<input type="text" placeholder="Search">
+
 </nav>
 
 <section class="slider">
@@ -182,16 +235,6 @@ Latest Articles
 </div>
 </section>
 
-<!-- VIDEOS -->
-<section class="videos">
-  <h2>Latest Videos</h2>
-
-  <div class="video-box">
-    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -225,10 +268,5 @@ Read rashifal, vedic puja and astrology updates.
 </div>
 
 <script src="script.js"></script>
-<a href="https://wa.me/919876543210" 
-class="whatsapp-btn"
-target="_blank">
-💬
-</a>
 </body>
 </html>

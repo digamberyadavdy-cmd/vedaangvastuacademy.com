@@ -39,3 +39,8 @@ card.style.transform = "translateY(0)";
 });
 
 });
+function toggleMenu(){
+document
+.getElementById("navMenu")
+.classList.toggle("show");
+}
