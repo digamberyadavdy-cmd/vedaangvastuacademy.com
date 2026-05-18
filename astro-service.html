@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vedaang Vastu Academy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <title>Astro Services</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="top-bar">
+
+<div class="top-bar">
     <a href="rashifal.html">Rashifal 2026</a>
     <a href="transit.html">Transit 2026</a>
     <a href="festival.html">Festival 2026</a>
@@ -58,98 +56,61 @@
     <input type="text" placeholder="Search">
   </nav>
 
-  <section class="slider">
-    <div class="slide active">
-      <img src="images/slider1.svg" alt="Astrology guidance">
-      <div class="content">
-        <h1>Astrology Services</h1>
-        <p>Best horoscope and astrology guidance.</p>
-        <button>Read More</button>
-      </div>
+<section class="astro-services">
+
+    <h1 class="service-title">
+        Astro Services by <br>
+        Pt. Ayushman Dixit
+    </h1>
+
+    <div class="service-grid">
+
+        <div class="service-card">
+            <img src="images/urgent.png">
+            <h3>Urgent Talk</h3>
+            <p>₹5100</p>
+            <button>Request Now</button>
+        </div>
+
+        <div class="service-card">
+            <img src="images/call.png">
+            <h3>Premium Talk</h3>
+            <p>₹2500</p>
+            <button>Request Now</button>
+        </div>
+
+        <div class="service-card">
+            <img src="images/career.png">
+            <h3>Career Astrology</h3>
+            <p>₹3500</p>
+            <button>Request Now</button>
+        </div>
+
+        <div class="service-card">
+            <img src="images/love.png">
+            <h3>Love Relationship</h3>
+            <p>₹2100</p>
+            <button>Request Now</button>
+        </div>
+
+        <div class="service-card">
+            <img src="images/kundli.png">
+            <h3>Kundli Matching</h3>
+            <p>₹1500</p>
+            <button>Request Now</button>
+        </div>
+
+        <div class="service-card">
+            <img src="images/health.png">
+            <h3>Health Astrology</h3>
+            <p>₹2600</p>
+            <button>Request Now</button>
+        </div>
+
     </div>
 
-    <div class="slide">
-      <img src="images/slider2.svg" alt="Vedic puja services">
-      <div class="content">
-        <h1>Vedic Puja</h1>
-        <p>Online puja services for peace and prosperity.</p>
-        <button>Book Now</button>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img src="images/slider3.svg" alt="Rashifal prediction">
-      <div class="content">
-        <h1>2026 Rashifal</h1>
-        <p>Get yearly prediction for your rashi.</p>
-        <button>View More</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="services">
-    <div class="service-box">
-      <h2>ASTRO SERVICES</h2>
-      <ul>
-        <li>Urgent Talk</li>
-        <li>Premium Tele Talk</li>
-        <li>Marriage Matching</li>
-        <li>Career Astrology</li>
-        <li>Business Advice</li>
-      </ul>
-    </div>
-
-    <div class="service-box">
-      <h2>VEDIC POOJA</h2>
-      <ul>
-        <li>Mangal Puja</li>
-        <li>Hanuman Puja</li>
-        <li>Shani Shanti</li>
-        <li>Kaal Sarp Dosh</li>
-        <li>Maha Mrityunjaya Jaap</li>
-      </ul>
-    </div>
-
-    <div class="service-box">
-      <h2>2026 REPORTS</h2>
-      <ul>
-        <li>Yearly Horoscope</li>
-        <li>Panchang 2026</li>
-        <li>Marriage Muhurat</li>
-        <li>Transit Prediction</li>
-        <li>Festival Calendar</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="news-section">
-    <h1 class="section-title">Latest Articles</h1>
-
-    <div class="news-grid">
-      <div class="news-card">
-        <img src="images/slider1.svg" alt="2026 horoscope prediction">
-        <h3>2026 Horoscope Prediction</h3>
-        <p>Read your yearly horoscope and astrology prediction.</p>
-        <button>Read More</button>
-      </div>
-
-      <div class="news-card">
-        <img src="images/slider2.svg" alt="Best muhurat dates">
-        <h3>Best Muhurat Dates</h3>
-        <p>Know the best marriage and puja dates.</p>
-        <button>Read More</button>
-      </div>
-
-      <div class="news-card">
-        <img src="images/slider3.svg" alt="Planet transit 2026">
-        <h3>Planet Transit 2026</h3>
-        <p>Latest planetary changes and effects.</p>
-        <button>Read More</button>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
+</section>
+<footer class="footer">
     <div class="footer-box">
       <h2>About Us</h2>
       <p>Best astrology and horoscope website. Read rashifal, vedic puja and astrology updates.</p>

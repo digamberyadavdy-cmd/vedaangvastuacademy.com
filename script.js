@@ -1,46 +1,24 @@
-const slides = document.querySelectorAll('.slide');
-
+const slides = document.querySelectorAll(".slide");
 let current = 0;
 
-function changeSlide(){
+function changeSlide() {
+    if (!slides.length) {
+        return;
+    }
 
-slides[current].classList.remove('active');
-
-current++;
-
-if(current >= slides.length){
-current = 0;
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
 }
 
-slides[current].classList.add('active');
+if (slides.length) {
+    setInterval(changeSlide, 3000);
 }
 
-setInterval(changeSlide,3000);
+function toggleMenu() {
+    const navMenu = document.getElementById("navMenu");
 
-
-// Scroll animation
-window.addEventListener("scroll", function(){
-
-const cards = document.querySelectorAll(
-'.service-box,.news-card,.zodiac-card'
-);
-
-cards.forEach(card => {
-
-let position = card.getBoundingClientRect().top;
-
-let screenHeight = window.innerHeight;
-
-if(position < screenHeight - 100){
-card.style.opacity = "1";
-card.style.transform = "translateY(0)";
-}
-
-});
-
-});
-function toggleMenu(){
-document
-.getElementById("navMenu")
-.classList.toggle("show");
+    if (navMenu) {
+        navMenu.classList.toggle("show");
+    }
 }
