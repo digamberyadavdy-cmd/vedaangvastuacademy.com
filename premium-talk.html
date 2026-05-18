@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Talk - Vedaang Vastu Academy</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.urgent-page{
+    display:grid;
+    grid-template-columns: 3fr 1fr;
+    gap:30px;
+    padding:40px;
+}
+
+.urgent-box{
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.urgent-title{
+    background:#ffcc00;
+    text-align:center;
+    padding:15px;
+    font-size:34px;
+    color:red;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.service-info{
+    text-align:center;
+    line-height:2;
+}
+
+.service-info h3{
+    color:#0047ff;
+}
+
+.notice-box{
+    background:#f8f8f8;
+    border:1px solid #ddd;
+    padding:20px;
+    margin:25px 0;
+    text-align:center;
+    color:red;
+    font-weight:600;
+}
+
+.form-title{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+textarea{
+    height:120px;
+}
+
+.submit-btn{
+    background:#007bff;
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.sidebar-box{
+    background:#fff;
+    border:1px solid #ddd;
+    margin-bottom:20px;
+}
+
+.sidebar-box h3{
+    background:#ff7a00;
+    color:white;
+    padding:15px;
+}
+
+.sidebar-box ul{
+    list-style:none;
+    padding:15px;
+}
+
+.sidebar-box li{
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+@media(max-width:900px){
+    .urgent-page{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+ <div class="top-bar">
+    <a href="rashifal.html">Rashifal 2026</a>
+    <a href="transit.html">Transit 2026</a>
+    <a href="festival.html">Festival 2026</a>
+    <a href="ekadashi.html">Ekadashi 2026</a>
+    <a href="articles.html">Articles</a>
+  </div>
+
+  <header class="header">
+    <div class="header-left">
+      <img src="images/logo.png" class="company-logo" alt="Vedaang Vastu Academy logo">
+      <h1>Vedaang Vastu Academy</h1>
+      <p>Jyotish guidance, correct future and peaceful life.</p>
+    </div>
+
+    <div class="header-center">
+      <a href="mesh-rashifal.html" class="zodiac-box"><img src="images/aries.svg" alt="Aries"><p>Aries</p></a>
+      <a href="vrishabh-rashifal.html" class="zodiac-box"><img src="images/taurus.svg" alt="Taurus"><p>Taurus</p></a>
+      <a href="mithun-rashifal.html" class="zodiac-box"><img src="images/gemini.svg" alt="Gemini"><p>Gemini</p></a>
+      <a href="kark-rashifal.html" class="zodiac-box"><img src="images/cancer.svg" alt="Cancer"><p>Cancer</p></a>
+      <a href="singh-rashifal.html" class="zodiac-box"><img src="images/leo.svg" alt="Leo"><p>Leo</p></a>
+      <a href="kanya-rashifal.html" class="zodiac-box"><img src="images/virgo.svg" alt="Virgo"><p>Virgo</p></a>
+      <a href="tula-rashifal.html" class="zodiac-box"><img src="images/libra.svg" alt="Libra"><p>Libra</p></a>
+      <a href="vrishchik-rashifal.html" class="zodiac-box"><img src="images/scorpio.svg" alt="Scorpio"><p>Scorpio</p></a>
+      <a href="dhanu-rashifal.html" class="zodiac-box"><img src="images/sagittarius.svg" alt="Sagittarius"><p>Sagittarius</p></a>
+      <a href="makar-rashifal.html" class="zodiac-box"><img src="images/capricorn.svg" alt="Capricorn"><p>Capricorn</p></a>
+      <a href="kumbh-rashifal.html" class="zodiac-box"><img src="images/aquarius.svg" alt="Aquarius"><p>Aquarius</p></a>
+      <a href="meen-rashifal.html" class="zodiac-box"><img src="images/pisces.svg" alt="Pisces"><p>Pisces</p></a>
+    </div>
+
+    <div class="header-right">
+      <img src="images/jyotish.svg" class="guru-image" alt="Pt. Ayushman Dixit">
+      Pt. Ayushman Dixit
+      <h4>Famous Astrologer</h4>
+      <p>Correct astrology guidance and predictions backed by years of experience.</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <ul id="navMenu">
+      <li><a href="index.html" class="active">HOME</a></li>
+      <li><a href="rashifal.html">RASHIFAL</a></li>
+      <li><a href="astro-service.html">ASTRO SERVICE</a></li>
+      <li><a href="vedic-pooja.html">VEDIC POOJA</a></li>
+      <li><a href="transit.html">TRANSIT</a></li>
+    </ul>
+    <input type="text" placeholder="Search">
+  </nav>
+
+
+<div class="urgent-page">
+
+<div class="urgent-box">
+
+<div class="premium-title">
+PREMIUM TALK
+</div>
+
+<div class="service-info">
+<h3>(Tele / WhatsApp Consultancy)</h3>
+<p>Exclusive discussion with <b>Pt. Ayushman Dixit</b></p>
+<p><b>Duration:</b> 15 Min</p>
+<p><b>Fee:</b> ₹5100</p>
+</div>
+
+<div class="notice-box">
+1. Only one issue can be discussed.<br><br>
+2. Reports are sent in Hindi language only.<br><br>
+3. Post query support available for 3 days.
+</div>
+
+<h3 class="form-title">
+Fill Request Form & Pay
+</h3>
+
+<form id="astroForm">
+
+<div class="form-group">
+<label>Name*</label>
+<input type="text" id="name" required>
+</div>
+
+<div class="form-group">
+<label>Email*</label>
+<input type="email" id="email" required>
+</div>
+
+<div class="form-group">
+<label>Contact Number*</label>
+<input type="tel" id="phone" required>
+</div>
+
+<div class="form-group">
+<label>City*</label>
+<input type="text" id="city" required>
+</div>
+
+<div class="form-group">
+<label>Service*</label>
+<select id="service">
+<option>Urgent Talk</option>
+<option>Love Relationship</option>
+<option>Kundli Matching</option>
+<option>Career Astrology</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Sex*</label>
+
+<select id="sex" required>
+<option value="">Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Date of Birth*</label>
+<input type="date" id="dob" required>
+</div>
+
+<div class="form-group">
+<label>Time of Birth*</label>
+<input type="time" id="birthtime">
+</div>
+
+<div class="form-group">
+<label>Place of Birth*</label>
+<input type="text" id="birthplace"
+placeholder="Enter place of birth">
+</div>
+
+<div class="form-group">
+<label>Address*</label>
+<textarea id="address"
+placeholder="Enter full address"></textarea>
+</div>
+
+<div class="form-group">
+<label>Problem Description*</label>
+<textarea id="message"></textarea>
+</div>
+
+<button class="submit-btn" type="submit">
+Submit
+</button>
+
+</form>
+
+</div>
+
+<div>
+
+<div class="sidebar-box">
+<h3>ASTRO SERVICES</h3>
+<ul>
+<li>
+    <a href="urgent-talk.html">
+        Urgent Talk
+    </a>
+</li>
+<li>
+    <a href="talk-to-astrologer.html">
+        Talk to Astrologer
+    </a>
+</li>
+<li>
+    <a href="marriage-relationship-talk.html">
+        Marriage Relationship Talk
+    </a>
+</li>
+<li>
+    <a href="child-birth-report.html">
+        Child Birth Report
+    </a>
+</li>
+<li>
+    <a href="kundli-analysis.html">
+        Kundli Analysis
+    </a>
+</li>
+</ul>
+</div>
+
+<div class="sidebar-box">
+<h3>PUJA OF THIS MONTH</h3>
+<ul>
+<li>Special Hanuman Puja</li>
+<li>Shani Shanti Puja</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("astroForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let name =
+document.getElementById("name").value;
+
+let email =
+document.getElementById("email").value;
+
+let phone =
+document.getElementById("phone").value;
+
+let city =
+document.getElementById("city").value;
+
+let sex =
+document.getElementById("sex").value;
+
+let dob =
+document.getElementById("dob").value;
+
+let birthtime =
+document.getElementById("birthtime").value;
+
+let birthplace =
+document.getElementById("birthplace").value;
+
+let address =
+document.getElementById("address").value;
+
+let service =
+document.getElementById("service").value;
+
+let message =
+document.getElementById("message").value;
+
+let whatsappMessage =
+`New Astro Service Request
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+City: ${city}
+Sex: ${sex}
+Date of Birth: ${dob}
+Time of Birth: ${birthtime}
+Place of Birth: ${birthplace}
+Address: ${address}
+Service: ${service}
+Problem: ${message}`;
+
+window.open(
+`https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`,
+"_blank"
+);
+
+});
+
+</script>
+  <footer class="footer">
+    <div class="footer-box">
+      <h2>About Us</h2>
+      <p>Best astrology and horoscope website. Read rashifal, vedic puja and astrology updates.</p>
+    </div>
+
+    <div class="footer-box">
+      <h2>Quick Links</h2>
+      <a href="index.html">Home</a>
+      <a href="rashifal.html">Horoscope</a>
+      <a href="vedic-pooja.html">Puja</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="footer-box">
+      <h2>Contact</h2>
+      <p>Email: info@gmail.com</p>
+      <p>Phone: +91 9876543210</p>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    &copy; 2026 Astro Website | All Rights Reserved
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
